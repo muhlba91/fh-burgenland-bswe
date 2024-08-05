@@ -1,0 +1,28 @@
+{
+    "name": "fh-burgenland-bswe-pulumi-demo",
+    "license": "MIT",
+    "main": "index.ts",
+    "scripts": {
+        "fix": "eslint --fix",
+        "lint": "eslint"
+    },
+    "devDependencies": {
+        "@eslint/js": "^9.8.0",
+        "@types/eslint__js": "^8.42.3",
+        "@types/node": "^18",
+        "eslint": "^9.8.0",
+        "eslint-plugin-import": "^2.25.2",
+        "eslint-plugin-n": "^15.0.0 || ^16.0.0 ",
+        "eslint-plugin-promise": "^6.0.0",
+        "prettier": "^3.2.5",
+        "typescript": "^5.5.4",
+        "typescript-eslint": "^8.0.0"
+    },
+    "dependencies": {
+        "@pulumi/gcp": "^7.0.0",
+        "@pulumi/pulumi": "^3.113.0"
+    },
+    "prettier": {
+        "singleQuote": true
+    }
+}
