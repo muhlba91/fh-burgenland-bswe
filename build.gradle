@@ -2,10 +2,13 @@ plugins {
     id 'java'
     id 'org.springframework.boot' version '3.3.3'
     id 'io.spring.dependency-management' version '1.1.6'
+
+    id 'checkstyle'
+    id 'pmd'
 }
 
 group = 'io.muehlbachler'
-version = '0.0.1-SNAPSHOT'
+version = '' // Set to empty string for this course as versioning is not required.
 
 // java {
 //   sourceCompatibility = '20'
@@ -23,6 +26,13 @@ dependencies {
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+pmd {
+    consoleOutput = true
+    rulesMinimumPriority = 5
+    ruleSetFiles = files('config/pmd/ruleset.xml')
+    toolVersion = "7.5.0"
 }
 
 tasks.named('test') {
