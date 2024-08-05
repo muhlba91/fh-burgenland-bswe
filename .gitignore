@@ -1,5 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/node,terraform,visualstudiocode,intellij+all,gradle,ansible,pulumi
-# Edit at https://www.toptal.com/developers/gitignore?templates=node,terraform,visualstudiocode,intellij+all,gradle,ansible,pulumi
+# Created by https://www.toptal.com/developers/gitignore/api/node,terraform,visualstudiocode,intellij+all,gradle,ansible,pulumi,virtualenv
+# Edit at https://www.toptal.com/developers/gitignore?templates=node,terraform,visualstudiocode,intellij+all,gradle,ansible,pulumi,virtualenv
 
 ### Ansible ###
 *.retry
@@ -274,6 +274,20 @@ override.tf.json
 .terraformrc
 terraform.rc
 
+### VirtualEnv ###
+# Virtualenv
+# http://iamzed.com/2009/05/07/a-primer-on-virtualenv/
+.Python
+[Bb]in
+[Ii]nclude
+[Ll]ib
+[Ll]ib64
+[Ll]ocal
+[Ss]cripts
+pyvenv.cfg
+.venv
+pip-selfcheck.json
+
 ### VisualStudioCode ###
 .vscode/*
 !.vscode/settings.json
@@ -320,10 +334,12 @@ gradle-app.setting
 # Java heap dump
 *.hprof
 
-# End of https://www.toptal.com/developers/gitignore/api/node,terraform,visualstudiocode,intellij+all,gradle,ansible,pulumi
+# End of https://www.toptal.com/developers/gitignore/api/node,terraform,visualstudiocode,intellij+all,gradle,ansible,pulumi,virtualenv
 
 local.env
 gcp-key.json
 .vscode/
 bin/
 .terraform.lock.hcl
+.python-version
+inventory.yml
