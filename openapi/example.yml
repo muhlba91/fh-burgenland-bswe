@@ -1,0 +1,67 @@
+---
+openapi: 3.0.3
+info:
+  title: Calculator
+  description: |-
+    This service performs basic calculations.
+  version: 1.0.0
+tags:
+  - name: calculator
+    description: Basic arithmetic operations.
+paths:
+  /multiply:
+    get:
+      tags:
+        - calculator
+      summary: Multiply two numbers.
+      description: Multiplies two numbers as GET parameters.
+      operationId: multiply
+      parameters:
+        - name: a
+          in: query
+          required: true
+          schema:
+            type: number
+          example: 5
+        - name: b
+          in: query
+          required: true
+          schema:
+            type: number
+          example: 3
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            text/plain:
+              schema:
+                type: number
+              example: 15
+  /divide/{a}/{b}:
+    get:
+      tags:
+        - calculator
+      summary: Divide two numbers.
+      description: Divides two numbers as path parameters.
+      operationId: divide
+      parameters:
+        - name: a
+          in: path
+          required: true
+          schema:
+            type: number
+          example: 10
+        - name: b
+          in: path
+          required: true
+          schema:
+            type: number
+          example: 2
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            text/plain:
+              schema:
+                type: number
+              example: 5
