@@ -22,5 +22,21 @@ public class StringControllerHttpTest {
                 .andExpect(MockMvcResultMatchers.content().string(Matchers.equalTo("ABC")));
     }
 
-    // FIXME: implement more tests
+    @Test
+    public void testToUpperCaseEmpty() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.get("/upper?string=")).andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.content().string(Matchers.equalTo("")));
+    }
+
+    @Test
+    public void testToLowerCase() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.get("/lower?string=ABC")).andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.content().string(Matchers.equalTo("abc")));
+    }
+
+    @Test
+    public void testToLowerCaseEmpty() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.get("/lower?string=")).andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.content().string(Matchers.equalTo("")));
+    }
 }

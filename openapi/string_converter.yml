@@ -1,0 +1,55 @@
+---
+openapi: 3.0.3
+info:
+  title: String Converter
+  description: |-
+    This service performs basic string conversions.
+  version: 1.0.0
+tags:
+  - name: strings
+    description: Basic string operations.
+paths:
+  /upper:
+    get:
+      tags:
+        - strings
+      summary: Convert to uppercase.
+      description: Converts a string given as a query parameter to uppercase.
+      operationId: upper
+      parameters:
+        - name: text
+          in: query
+          required: true
+          schema:
+            type: string
+          example: hello
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: HELLO
+  /lower:
+    get:
+      tags:
+        - strings
+      summary: Convert to lowercase.
+      description: Converts a string given as a query parameter to lowercase.
+      operationId: lower
+      parameters:
+        - name: text
+          in: path
+          required: true
+          schema:
+            type: string
+          example: HELLO
+      responses:
+        '200':
+          description: Successful operation.
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: hello
