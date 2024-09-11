@@ -22,5 +22,9 @@ public class StringControllerHttpTest {
                 .andExpect(MockMvcResultMatchers.content().string(Matchers.equalTo("ABC")));
     }
 
-    // FIXME: implement more tests
+    @Test
+    public void testToUpperCaseEmptyString() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.get("/upper?string=")).andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.content().string(Matchers.equalTo("")));
+    }
 }
