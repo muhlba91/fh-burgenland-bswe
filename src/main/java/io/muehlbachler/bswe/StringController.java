@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class StringController {
     /**
      * Represents the service provided for this controller
-     * 
      * @see StringService
      */
     @Autowired
