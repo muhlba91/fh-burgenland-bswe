@@ -1,0 +1,40 @@
+openapi: 3.0.3
+info:
+  title: SWM Vorlesung - OpenAPI 3.0
+  description: |-
+    This is a API Documentation for the test project of the SWM lectures.
+  version: 1.0.0
+servers:
+  - url: http://127.0.0.1/api/v1
+tags:
+  - name: StringController
+    description: The StringController
+    externalDocs:
+      description: Find out more
+      url: http://swagger.io
+paths:
+  /upper:
+    get:
+      tags:
+        - StringController
+      summary: String to uppercase
+      description: Converts a string to uppercase
+      operationId: uppercase
+      parameters:
+              - name: string
+                in: query
+                description: The String to convert
+                required: true
+                schema:
+                  type: string
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            text/plain:
+              schema:
+                type: string
+        '400':
+          description: Invalid Request
+        '422':
+          description: Validation exception
