@@ -4,10 +4,6 @@ import org.springframework.stereotype.Service;
 
 /**
  * This class provides a service for the string controller and adds operations to manipulate strings.
- * 
- * @author Marcel-TO
- *         <p>
- *         &copy; Marcel-TO. All rights reserved.
  */
 @Service
 public class StringService {
