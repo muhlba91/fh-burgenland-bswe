@@ -2,12 +2,22 @@ package io.muehlbachler.bswe;
 
 import org.springframework.stereotype.Service;
 
-// FIXME: add javadoc
+/**
+ * Service-Klasse, die die Logik zur Umwandlung von Zeichenketten verwendet wird
+ */
 @Service
 public class StringService {
-    // FIXME: add javadoc
+
+    /**
+     * Konvertiert die übergebene Zeichenkette in Großbuchstaben
+     * @param string Die zu konvertierende Zeichenkette
+     * @return Die Zeichenkette in Großbuchstaben
+     * @throws IllegalArgumentException Wenn die Eingabe null ist
+     */
     public String toUpperCase(final String string) {
-        // FIXME: implement
-        return string;
+        if (string == null) {
+            throw new IllegalArgumentException("Die Eingabe darf nicht null sein.");
+        }
+        return string.toUpperCase();
     }
 }

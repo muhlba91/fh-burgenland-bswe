@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
 public class StringController {
+
     @Autowired
     private StringService stringService = new StringService();
 
