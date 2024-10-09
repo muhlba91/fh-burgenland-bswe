@@ -1,15 +1,23 @@
 package io.muehlbachler.bswe;
 
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class StringServiceTest {
     private StringService stringService = new StringService();
 
     @Test
     public void testToUpperCase() {
-        assertEquals(1, stringService.toUpperCase("abc"), "abc toUpperCase should be ABC");
+        assertEquals("ABC", stringService.toUpperCase("abc"), "abc toUpperCase should be ABC");
     }
 
-    // FIXME: implement more tests
+    @Test
+    public void testToUpperCaseEmptyString() {
+        assertEquals("", stringService.toUpperCase(""), "'' toUpperCase should be ''");
+    }
+
+    @Test
+    public void testToUpperCaseNullString() {
+        assertEquals(null, stringService.toUpperCase(null), "null toUpperCase should be null");
+    }
 }

@@ -1,0 +1,19 @@
+# builder
+FROM openjdk:22-slim AS builder
+WORKDIR /workspace/app
+
+COPY gradle gradle
+COPY build.gradle settings.gradle gradlew ./
+COPY src src
+
+RUN ./gradlew bootJar
+
+
+# final container
+FROM openjdk:22-slim
+
+COPY --from=builder /workspace/app/build/libs/bswe.jar /app.jar
+
+EXPOSE 8080/tcp
+
+CMD ["java", "-jar", "/app.jar"]

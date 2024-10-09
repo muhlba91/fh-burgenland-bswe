@@ -1,5 +1,13 @@
+<<<<<<< HEAD
 # Created by https://www.toptal.com/developers/gitignore/api/gradle,intellij+all,visualstudiocode,vue,vuejs,node,yarn
 # Edit at https://www.toptal.com/developers/gitignore?templates=gradle,intellij+all,visualstudiocode,vue,vuejs,node,yarn
+=======
+# Created by https://www.toptal.com/developers/gitignore/api/node,terraform,visualstudiocode,intellij+all,gradle,ansible,pulumi,virtualenv
+# Edit at https://www.toptal.com/developers/gitignore?templates=node,terraform,visualstudiocode,intellij+all,gradle,ansible,pulumi,virtualenv
+
+### Ansible ###
+*.retry
+>>>>>>> 262c3e8 (feat: add sample solution; fix #2)
 
 ### Intellij+all ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
@@ -229,6 +237,65 @@ dist
 # SvelteKit build / generate output
 .svelte-kit
 
+<<<<<<< HEAD
+=======
+### Pulumi ###
+# Ignore temp build directory for Pulumi
+# Info: https://www.pulumi.com/docs/
+
+.pulumi/
+
+### Terraform ###
+# Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# Crash log files
+crash.log
+crash.*.log
+
+# Exclude all .tfvars files, which are likely to contain sensitive data, such as
+# password, private keys, and other secrets. These should not be part of version
+# control as they are data points which are potentially sensitive and subject
+# to change depending on the environment.
+*.tfvars
+*.tfvars.json
+
+# Ignore override files as they are usually used to override resources locally and so
+# are not checked in
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Include override files you do wish to add to version control using negated pattern
+# !example_override.tf
+
+# Include tfplan files to ignore the plan output of command: terraform plan -out=tfplan
+# example: *tfplan*
+
+# Ignore CLI configuration files
+.terraformrc
+terraform.rc
+
+### VirtualEnv ###
+# Virtualenv
+# http://iamzed.com/2009/05/07/a-primer-on-virtualenv/
+.Python
+[Bb]in
+[Ii]nclude
+[Ll]ib
+[Ll]ib64
+[Ll]ocal
+[Ss]cripts
+pyvenv.cfg
+.venv
+pip-selfcheck.json
+
+>>>>>>> 262c3e8 (feat: add sample solution; fix #2)
 ### VisualStudioCode ###
 .vscode/*
 !.vscode/settings.json
@@ -310,10 +377,14 @@ gradle-app.setting
 # Java heap dump
 *.hprof
 
-# End of https://www.toptal.com/developers/gitignore/api/gradle,intellij+all,visualstudiocode,vue,vuejs,node,yarn
+# End of https://www.toptal.com/developers/gitignore/api/node,terraform,visualstudiocode,intellij+all,gradle,ansible,pulumi,virtualenv
 
 local.env
 gcp-key.json
 .vscode/
 test-results/
 playwright-report/
+bin/
+.terraform.lock.hcl
+.python-version
+inventory.yml

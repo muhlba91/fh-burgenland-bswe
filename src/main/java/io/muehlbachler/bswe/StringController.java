@@ -5,13 +5,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestParam;
 
+/**
+ * Controller for string operations.
+ */
 @RestController
 public class StringController {
     @Autowired
-    private StringService stringService = new StringService();
+    private final StringService stringService = new StringService();
 
+    /**
+     * Converts a string to upper case.
+     * 
+     * @param text the string to convert
+     * @return the upper case string
+     */
     @GetMapping("/upper")
-    String upper(@RequestParam(value = "string") final String text) {
+    String upper(@RequestParam("string") final String text) {
         return stringService.toUpperCase(text);
     }
 }
