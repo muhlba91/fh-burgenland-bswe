@@ -2,12 +2,28 @@ package io.muehlbachler.bswe;
 
 import org.springframework.stereotype.Service;
 
-// FIXME: add javadoc
+/**
+ * This class provides a service for the string controller and adds operations to manipulate strings.
+ * 
+ * @author Marcel-TO
+ *         <p>
+ *         &copy; Marcel-TO. All rights reserved.
+ */
 @Service
 public class StringService {
-    // FIXME: add javadoc
+     /**
+     * This method converts a string to upper case.
+     * 
+     * @param string  The input string that gets converted.
+     * 
+     * @return The upper case string.
+     * 
+     * @throws IllegalArgumentException Thrown if the string is null.
+     */
     public String toUpperCase(final String string) {
-        // FIXME: implement
-        return string;
+        if (string == null) {
+            throw new IllegalArgumentException("String must not be null");
+        }
+        return string.toUpperCase();
     }
 }
