@@ -14,9 +14,7 @@ public class StringService {
      * @return the uppercase version of the input string, or null if input is null
      */
     public String toUpperCase(final String string) {
-
         // FIXME: implement
-
         return string;
     }
 }
