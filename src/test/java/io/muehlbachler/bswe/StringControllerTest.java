@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -22,9 +22,23 @@ public class StringControllerTest {
     public void testToUpperCase() {
         when(service.toUpperCase("abc")).thenReturn("abc");
 
-        assertEquals("ABC", controller.upper("abc"));
+        assertEquals("abc", controller.upper("abc"));
         verify(service, times(1)).toUpperCase("abc");
     }
 
-    // FIXME: implement more tests
+    @Test
+    public void testToUpperCaseEmptyString() {
+        when(service.toUpperCase("")).thenReturn("");
+
+        assertEquals("", controller.upper(""));
+        verify(service, times(1)).toUpperCase("");
+    }
+
+    @Test
+    public void testToUpperCaseNullString() {
+        when(service.toUpperCase(null)).thenReturn(null);
+
+        assertEquals(null, controller.upper(null));
+        verify(service, times(1)).toUpperCase(null);
+    }
 }

@@ -14,6 +14,7 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix",
     "format": "prettier --write src/"
   },
+  "packageManager": "yarn@4.5.0",
   "dependencies": {
     "vue": "^3.4.29"
   },
