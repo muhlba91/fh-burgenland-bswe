@@ -20,48 +20,70 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * REST controller for managing users.
+ *
+ * Provides endpoints for creating, listing and deleting users.
+ */
 @AllArgsConstructor
 @RestController
 @RequestMapping("/api/user")
 @CrossOrigin
 public class UserController {
-  @Autowired
-  private final UserService userService;
+    @Autowired
+    private final UserService userService;
 
-  @PostMapping("/")
-  public ResponseEntity<User> create(@RequestBody final UserCreateDto userDto) {
-    if (userDto == null) {
-      return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+    /**
+     * Creates a new user.
+     *
+     * @param userDto user data
+     * @return created user or error status
+     */
+    @PostMapping("/")
+    public ResponseEntity<User> create(@RequestBody final UserCreateDto userDto) {
+        if (userDto == null) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+
+        final User user = new User();
+        user.setUsername(userDto.getUsername());
+        user.setId(userDto.getId());
+        try {
+            final User createdUser = userService.save(user);
+            if (createdUser == null) {
+                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            }
+
+            return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
+        } catch (final ApiException e) {
+            return new ResponseEntity<>(e.getHttpStatus());
+        }
     }
 
-    final User user = new User();
-    user.setUsername(userDto.getUsername());
+    /**
+     * Lists all users.
+     *
+     * @return list of users or 404 if none found
+     */
+    @GetMapping("/")
+    public ResponseEntity<UserListDto> list() {
+        final List<User> users = userService.list();
+        if (users == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
 
-    try {
-      final User createdUser = userService.save(user);
-      if (createdUser == null) {
-        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-      }
-
-      return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
-    } catch (final ApiException e) {
-      return new ResponseEntity<>(e.getHttpStatus());
-    }
-  }
-
-  @GetMapping("/")
-  public ResponseEntity<UserListDto> list() {
-    final List<User> users = userService.list();
-    if (users == null) {
-      return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(new UserListDto(users), HttpStatus.OK);
     }
 
-    return new ResponseEntity<>(new UserListDto(users), HttpStatus.OK);
-  }
-
-  @DeleteMapping("/{id}")
-  public ResponseEntity<Void> delete(@PathVariable final String id) {
-    return new ResponseEntity<>(
-        userService.delete(id) ? HttpStatus.NO_CONTENT : HttpStatus.NOT_FOUND);
-  }
+    /**
+     * Deletes a user by userId.
+     *
+     * @param id userId of the user
+     * @return 204 if deleted, 404 if not found
+     */
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable final String id) {
+        return new ResponseEntity<>(
+                userService.delete(id) ? HttpStatus.NO_CONTENT : HttpStatus.NOT_FOUND);
+    }
 }

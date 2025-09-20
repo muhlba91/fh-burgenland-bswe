@@ -14,7 +14,7 @@ class UserCreateDtoTest {
 
   @Test
   void testAllArgsConstructor() {
-    final UserCreateDto dto = new UserCreateDto("username");
+    final UserCreateDto dto = new UserCreateDto("1","username");
     assertNotNull(dto);
     assertEquals("username", dto.getUsername());
   }
