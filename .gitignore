@@ -1,5 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/gradle,intellij+all,visualstudiocode,vue,vuejs,node,yarn
-# Edit at https://www.toptal.com/developers/gitignore?templates=gradle,intellij+all,visualstudiocode,vue,vuejs,node,yarn
+# Created by https://www.toptal.com/developers/gitignore/api/vue,node,vuejs,gradle,intellij+all,visualstudiocode,yarn
+# Edit at https://www.toptal.com/developers/gitignore?templates=vue,node,vuejs,gradle,intellij+all,visualstudiocode,yarn
 
 ### Intellij+all ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm and Rider
@@ -256,6 +256,9 @@ dist
 # TODO: where does this rule come from?
 docs/_book
 
+# TODO: where does this rule come from?
+test/
+
 ### Vuejs ###
 # Recommended template: Node.gitignore
 
@@ -307,10 +310,11 @@ gradle-app.setting
 # Java heap dump
 *.hprof
 
-# End of https://www.toptal.com/developers/gitignore/api/gradle,intellij+all,visualstudiocode,vue,vuejs,node,yarn
+# End of https://www.toptal.com/developers/gitignore/api/vue,node,vuejs,gradle,intellij+all,visualstudiocode,yarn
 
 local.env
 gcp-key.json
 .vscode/
 test-results/
 playwright-report/
+bin/
