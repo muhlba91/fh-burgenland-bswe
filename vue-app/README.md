@@ -52,7 +52,7 @@ yarn test:e2e
 # Runs the tests only on Chromium
 yarn test:e2e --project=chromium
 # Runs the tests of a specific file
-yarn test:e2e tests/example.spec.ts
+yarn test:e2e e2e/vue.spec.ts
 # Runs the tests in debug mode
 yarn test:e2e --debug
 ```

@@ -318,3 +318,4 @@ gcp-key.json
 test-results/
 playwright-report/
 bin/
+vue-app/.yarn/install-state.gz
